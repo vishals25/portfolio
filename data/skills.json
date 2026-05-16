@@ -1,0 +1,44 @@
+{
+  "Programming Languages": [
+    "Ruby",
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "R",
+    "C"
+  ],
+  "Frontend": [
+    "HTML",
+    "CSS",
+    "Tailwind CSS",
+    "Streamlit"
+  ],
+  "Web Frameworks": [
+    "Ruby on Rails",
+    "Django",
+    "Flask",
+    "FastAPI",
+    "React",
+    "AngularJS"
+  ],
+  "Database": [
+    "Postgres",
+    "MySQL",
+    "SQLite3"
+  ],
+  "AI Tools": [
+    "Claude Code",
+    "LangChain",
+    "Pinecone",
+    "Hugging Face"
+  ],
+  "Version Control": [
+    "Git",
+    "GitHub",
+    "GitLab"
+  ],
+  "Project & DevOps Tools": [
+    "Azure DevOps",
+    "Jira"
+  ]
+}

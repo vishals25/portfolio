@@ -1,0 +1,108 @@
+[
+  {
+    "name": "TRAF Enterprise Project",
+    "type": "Enterprise Application",
+    "date": "Dec 2025 - May 2026",
+    "tech": [
+      "Ruby on Rails",
+      "Docker",
+      "MFA",
+      "Ping Identity"
+    ],
+    "relatedSkills": [
+      "Ruby on Rails",
+      "Ruby",
+      "Docker"
+    ],
+    "description": "Contributed to a legacy enterprise application handling pension and registration flows. Optimized workflows, integrated MFA and Ping Authentication, managed cron jobs, and supported the project's migration to a containerized Docker environment.",
+    "link": "https://www.traf.mb.ca/",
+    "github": "#"
+  },
+  {
+    "name": "Hornbill-Habitat-Analysis-ML",
+    "type": "Machine Learning",
+    "date": "March 2025",
+    "tech": [
+      "Scikit-learn",
+      "Autoencoders",
+      "GeoPandas",
+      "GEE"
+    ],
+    "relatedSkills": [
+      "Python",
+      "Git",
+      "GitHub"
+    ],
+    "description": "A machine learning pipeline combining clustering and autoencoders to model habitat suitability of hornbill species. Uses ecological, telemetry, and climate data to identify core habitat zones and visualize spatial patterns using Plotly and GeoPandas.",
+    "link": "#",
+    "github": "https://github.com/vishals25/hornbill-suitability-analysis-using-autoencoders"
+  },
+  {
+    "name": "Fun-Gram",
+    "type": "Full-Stack Web App",
+    "date": "January 2025",
+    "tech": [
+      "Vite",
+      "React",
+      "Chakra-UI",
+      "Firebase"
+    ],
+    "relatedSkills": [
+      "JavaScript",
+      "React",
+      "CSS",
+      "HTML",
+      "Git",
+      "GitHub"
+    ],
+    "description": "An Instagram-style social media app with real-time posting, liking, and commenting. Features Firebase Authentication, Firestore database, and responsive UI with Chakra components. Deployed on Firebase Hosting.",
+    "link": "#",
+    "github": "https://github.com/vishals25/fun-gram"
+  },
+  {
+    "name": "Socio-API",
+    "type": "Backend API",
+    "date": "September 2024",
+    "tech": [
+      "Python",
+      "FastAPI",
+      "SQLAlchemy",
+      "Alembic",
+      "PostgreSQL"
+    ],
+    "relatedSkills": [
+      "Python",
+      "FastAPI",
+      "Postgres",
+      "Git",
+      "GitHub"
+    ],
+    "description": "A robust social media API with secure authentication and authorization workflows. Manages multiple accounts, posts, and user profiles with scalable schema management using Alembic.",
+    "link": "#",
+    "github": "https://github.com/vishals25/socio-api"
+  },
+  {
+    "name": "Easy-Kart",
+    "type": "E-Commerce Platform",
+    "date": "July 2024",
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Django",
+      "Stripe"
+    ],
+    "relatedSkills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Django",
+      "Python",
+      "Git",
+      "GitHub"
+    ],
+    "description": "A full-stack e-commerce website with product listings, shopping cart, and secure checkout with Stripe integration. Features user registration, profile management, and smooth navigation.",
+    "link": "#",
+    "github": "https://github.com/vishals25/easy-kart"
+  }
+]
