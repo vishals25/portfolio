@@ -24,12 +24,12 @@ export function usePortfolioData() {
 
   useEffect(() => {
     Promise.all([
-      fetchJSON('/data/profile.json'),
-      fetchJSON('/data/experience.json'),
-      fetchJSON('/data/projects.json'),
-      fetchJSON('/data/skills.json'),
-      fetchJSON('/data/education.json'),
-      fetchJSON('/data/certifications.json'),
+      fetchJSON(`${import.meta.env.BASE_URL}data/profile.json`),
+      fetchJSON(`${import.meta.env.BASE_URL}data/experience.json`),
+      fetchJSON(`${import.meta.env.BASE_URL}data/projects.json`),
+      fetchJSON(`${import.meta.env.BASE_URL}data/skills.json`),
+      fetchJSON(`${import.meta.env.BASE_URL}data/education.json`),
+      fetchJSON(`${import.meta.env.BASE_URL}data/certifications.json`),
     ]).then(([profile, experience, projects, skills, education, certifications]) => {
       setData({ profile, experience, projects, skills, education, certifications, loading: false });
     });
