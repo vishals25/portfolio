@@ -85,7 +85,7 @@ export default function ProjectsSection({ projects, skills }) {
                 <div className="project-label">Selected Works</div>
                 <h2 className="project-name">
                   <a
-                    href={project.link}
+                    href={project.link !== "#" ? project.link : project.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="project-name-link"

@@ -5,6 +5,30 @@ export default function HeroSection({ profile, experience, education }) {
   const contentRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isActive, setIsActive] = useState(true);
+  const [hoveredExp, setHoveredExp] = useState(null);
+  const hoverTimeoutRef = useRef(null);
+  const enterTimeoutRef = useRef(null);
+
+  const handleMouseEnterExp = useCallback((exp) => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+
+    enterTimeoutRef.current = setTimeout(() => {
+      setHoveredExp(exp);
+    }, 200); // 200ms delay before showing
+  }, []);
+
+  const handleMouseEnterModal = useCallback(() => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    if (enterTimeoutRef.current) clearTimeout(enterTimeoutRef.current);
+  }, []);
+
+  const handleMouseLeaveExp = useCallback(() => {
+    if (enterTimeoutRef.current) clearTimeout(enterTimeoutRef.current);
+
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredExp(null);
+    }, 200); // 200ms grace period to move mouse into modal
+  }, []);
 
   // Calculate total scrollable height of the right panel content
   const getMaxScroll = useCallback(() => {
@@ -128,7 +152,12 @@ export default function HeroSection({ profile, experience, education }) {
                 <div className="timeline">
                   <div className="timeline-line" />
                   {experience.map((exp, i) => (
-                    <div className="timeline-item" key={i}>
+                    <div
+                      className="timeline-item"
+                      key={i}
+                      onMouseEnter={() => handleMouseEnterExp(exp)}
+                      onMouseLeave={handleMouseLeaveExp}
+                    >
                       <div className="timeline-dot-wrap">
                         <div className="timeline-dot" />
                       </div>
@@ -136,6 +165,18 @@ export default function HeroSection({ profile, experience, education }) {
                         <div className="sidebar-item-title">{exp.title}</div>
                         <div className="sidebar-item-company">{exp.company}</div>
                         <div className="sidebar-item-period">{exp.period}</div>
+
+                        {exp.highlights && exp.highlights.length > 0 && (
+                          <div className={`timeline-highlights ${hoveredExp === exp ? 'expanded' : ''}`}>
+                            <div className="timeline-highlights-inner">
+                              <ul className="timeline-highlights-list">
+                                {exp.highlights.map((h, j) => (
+                                  <li key={j} className="timeline-highlights-item">{h}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}

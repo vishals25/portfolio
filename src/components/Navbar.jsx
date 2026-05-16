@@ -16,7 +16,7 @@ export default function Navbar({ profile }) {
       <a href="#" className="nav-logo">{profile.shortName}</a>
       <div className="nav-links">
         <a href={profile.github} className="nav-link" target="_blank" rel="noopener noreferrer">github</a>
-        <a href={profile.resumeLink} className="nav-link">resume</a>
+        <a href={profile.resumeLink} className="nav-link" target="_blank" rel="noopener noreferrer" download>resume</a>
         <a href={`mailto:${profile.email}`} className="nav-link nav-email">{profile.email}</a>
       </div>
     </nav>

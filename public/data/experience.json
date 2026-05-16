@@ -1,0 +1,36 @@
+[
+  {
+    "title": "SDE Intern",
+    "company": "Rootquotient Technologies",
+    "location": "Chennai, India",
+    "period": "Dec 2025 - May 2026",
+    "highlights": [
+      "Contributed to a legacy enterprise project called TRAF built with Ruby on Rails, working extensively with cron jobs, MFA integration, and Ping Authentication workflows.",
+      "Optimized pension application and online registration flows by resolving edge cases, improving reliability, and handling day-to-day production bug fixes in a large-scale codebase.",
+      "Supported the initial Docker migration setup and gained hands-on experience with containerized development environments during the transition phase.",
+      "Worked effectively in a highly restricted on-premise development environment using VPN and remote desktop access, independently coordinating across database, infrastructure, and DevOps dependencies to deliver reliable feature enhancements and production fixes."
+    ]
+  },
+  {
+    "title": "Software Engineering Intern",
+    "company": "Sálim Ali Centre for Ornithology and Natural History (SACON)",
+    "location": "Coimbatore, India",
+    "period": "Jan 2025 - Feb 2025",
+    "highlights": [
+      "Developed a Machine Learning approach to Habitat Suitability Analysis for Hornbills using auto-encoders and geospatial visualization techniques.",
+      "Processed satellite and field data to create interactive maps, identifying priority conservation areas for biodiversity preservation.",
+      "Integrated computational methods with ecological research, demonstrating a multidisciplinary approach to conservation challenges."
+    ]
+  },
+  {
+    "title": "SDE Intern",
+    "company": "CloudTel Solutions",
+    "location": "Remote",
+    "period": "Jul 2024 - Aug 2024",
+    "highlights": [
+      "Streamlined team workflows by introducing Git best practices, reducing integration challenges and enhancing collaboration.",
+      "Designed and developed a customer-centric ticketing platform using Django, improving support efficiency and user satisfaction.",
+      "Implemented AI-driven solutions with LangChain and LLaMA2, transforming complex data into actionable insights for business growth."
+    ]
+  }
+]

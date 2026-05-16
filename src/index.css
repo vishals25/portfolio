@@ -834,6 +834,50 @@ body.scroll-locked {
 }
 
 /* ===================================
+   TIMELINE ACCORDION HIGHLIGHTS
+   =================================== */
+.timeline-highlights {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  margin-top: 0;
+}
+
+.timeline-highlights.expanded {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 16px;
+}
+
+.timeline-highlights-inner {
+  overflow: hidden;
+}
+
+.timeline-highlights-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timeline-highlights-item {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline-highlights-item::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent-green);
+  font-size: 1.1em;
+}
+
+/* ===================================
    RESPONSIVE
    =================================== */
 @media (max-width: 900px) {
