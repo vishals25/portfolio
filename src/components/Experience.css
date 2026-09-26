@@ -1,0 +1,181 @@
+.xp {
+  position: relative;
+}
+
+.xp__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  padding: 0 0 clamp(36px, 5vw, 48px) 24px;
+}
+
+/* Timeline rail + node */
+.xp__item::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 10px;
+  bottom: -10px;
+  width: 1px;
+  background: var(--border);
+}
+
+.xp__item:last-child::before {
+  display: none;
+}
+
+.xp__item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--text-3);
+}
+
+.xp__item:first-child::after {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.xp__period {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  color: var(--text-2);
+}
+
+.xp__location {
+  font-size: var(--fs-small);
+  color: var(--text-3);
+}
+
+.xp__body {
+  min-width: 0;
+}
+
+.xp__company {
+  font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.3rem);
+  overflow-wrap: anywhere;
+}
+
+.xp__role {
+  margin-top: 2px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.xp__summary {
+  margin-top: 10px;
+  color: var(--text-2);
+  font-style: italic;
+}
+
+.xp__highlights {
+  display: grid;
+  gap: 10px;
+  max-width: 72ch;
+  margin-top: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.xp__highlights li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-2);
+}
+
+.xp__highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 8px;
+  height: 1.5px;
+  background: var(--text-3);
+}
+
+.xp__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-top: 18px;
+}
+
+.xp__case {
+  min-height: 44px;
+  font-size: var(--fs-small);
+}
+
+/* Education */
+.xp__education {
+  margin-top: 8px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.xp__education .label {
+  margin-bottom: 12px;
+}
+
+.xp__edu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+}
+
+.xp__edu-degree {
+  font-weight: 600;
+}
+
+.xp__edu-school {
+  color: var(--text-2);
+}
+
+.xp__edu-side {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  color: var(--text-2);
+}
+
+.xp__edu-cgpa {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+@media (min-width: 760px) {
+  .xp__item {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 32px;
+    padding-left: 0;
+  }
+
+  .xp__item::before {
+    left: 213px;
+  }
+
+  .xp__item::after {
+    left: 210px;
+  }
+
+  .xp__body {
+    padding-left: 24px;
+  }
+
+  .xp__meta {
+    text-align: right;
+  }
+}

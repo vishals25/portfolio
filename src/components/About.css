@@ -1,0 +1,120 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 72px);
+}
+
+.about__main {
+  min-width: 0;
+}
+
+.about__copy {
+  display: grid;
+  gap: 16px;
+  max-width: 62ch;
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+  color: var(--text-2);
+}
+
+.about__copy p:first-child {
+  color: var(--text);
+}
+
+.about__focus {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  gap: 0 28px;
+  margin-top: clamp(36px, 5vw, 56px);
+}
+
+.about__focus li {
+  padding-block: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.about__focus h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.about__focus h3::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 10px;
+  vertical-align: middle;
+  border-radius: 1px;
+  background: var(--accent);
+}
+
+.about__focus p {
+  font-size: var(--fs-small);
+  color: var(--text-2);
+}
+
+/* Aside */
+.about__aside {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 20px;
+  align-items: start;
+  min-width: 0;
+}
+
+.about__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 25%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+}
+
+.about__facts {
+  display: grid;
+  gap: 14px;
+}
+
+.about__facts dt {
+  margin-bottom: 2px;
+}
+
+.about__facts dd {
+  margin: 0;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--text);
+}
+
+@media (min-width: 600px) {
+  .about__aside {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (min-width: 960px) {
+  .about__grid {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: start;
+  }
+
+  .about__aside {
+    grid-template-columns: 1fr;
+    position: sticky;
+    top: calc(var(--nav-h) + 24px);
+  }
+}
+
+@media (max-width: 380px) {
+  .about__aside {
+    grid-template-columns: 1fr;
+  }
+
+  .about__photo {
+    max-width: 220px;
+  }
+}

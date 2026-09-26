@@ -1,0 +1,24 @@
+{
+  "name": "Vishal S",
+  "role": "Software Engineer",
+  "headline": "I build reliable backend systems, web applications, and AI‑powered tools.",
+  "summary": "Backend-leaning engineer working mostly in Python and Ruby — Django, FastAPI and Ruby on Rails on top of PostgreSQL. Most recently I shipped production fixes and authentication work on a large enterprise Rails platform.",
+  "stack": [
+    "Python",
+    "Ruby on Rails",
+    "Django",
+    "FastAPI",
+    "PostgreSQL",
+    "Docker",
+    "React"
+  ],
+  "availability": "Open to full-time software engineering roles",
+  "basedIn": "Coimbatore, India",
+  "email": "vishalsubramaniam0@gmail.com",
+  "github": "https://github.com/vishals25",
+  "githubUser": "vishals25",
+  "linkedin": "https://www.linkedin.com/in/vishals25",
+  "leetcode": "",
+  "resumeLink": "resume.pdf",
+  "contactFormEndpoint": ""
+}
