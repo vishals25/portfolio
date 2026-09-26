@@ -1,50 +1,62 @@
-import { useCallback } from 'react';
-import { usePortfolioData } from './hooks/usePortfolioData';
+import { useEffect } from 'react';
+import profile from './data/profile.json';
+import experience from './data/experience.json';
+import education from './data/education.json';
+import projects from './data/projects.json';
+import skills from './data/skills.json';
+import certifications from './data/certifications.json';
+import achievements from './data/achievements.json';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import ProjectsSection from './components/ProjectsSection';
-import Certifications from './components/Certifications';
-import Footer from './components/Footer';
-import ParticleBackground from './components/ParticleBackground';
+import Hero from './components/Hero';
+import About from './components/About';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Achievements from './components/Achievements';
+import Activity from './components/Activity';
+import Contact, { SiteFooter } from './components/Contact';
+
+// index.html adds .js-reveal to <html> only when IntersectionObserver exists and
+// the visitor hasn't asked for reduced motion; without it everything is visible.
+function useReveal() {
+  useEffect(() => {
+    if (!document.documentElement.classList.contains('js-reveal')) return undefined;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
+    );
+
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+}
 
 export default function App() {
-  const { profile, experience, projects, skills, education, certifications, loading } = usePortfolioData();
-
-  if (loading) {
-    return (
-      <div style={{
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: '#0a0a0a',
-        color: '#666',
-        fontFamily: "'Space Mono', monospace",
-        fontSize: '1.2rem',
-        letterSpacing: '0.1em',
-      }}>
-        Loading...
-      </div>
-    );
-  }
+  useReveal();
 
   return (
     <>
-      <ParticleBackground />
+      <a className="skip-link" href="#main">Skip to content</a>
       <Navbar profile={profile} />
-      <main>
-        <HeroSection
-          profile={profile}
-          experience={experience}
-          education={education}
-        />
-        <ProjectsSection
-          projects={projects}
-          skills={skills}
-        />
-        <Certifications certifications={certifications} />
+      <main id="main" tabIndex={-1}>
+        <Hero profile={profile} />
+        <About profile={profile} education={education} />
+        <Experience experience={experience} education={education} />
+        <Projects projects={projects} />
+        <Skills skills={skills} />
+        <Achievements achievements={achievements} certifications={certifications} />
+        <Activity profile={profile} />
+        <Contact profile={profile} />
       </main>
-      <Footer profile={profile} />
+      <SiteFooter profile={profile} />
     </>
   );
 }

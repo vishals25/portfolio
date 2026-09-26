@@ -1,54 +1,65 @@
-# Vishal S — Software Engineer Portfolio
+# Vishal S — Portfolio
 
-Welcome to the source code for my personal developer portfolio! This project showcases my experience, education, projects, and certifications through a uniquely designed, dark-themed, interactive web experience.
+Personal portfolio of Vishal S, a backend-focused software engineer based in Coimbatore, India.
+Live at **https://vishals25.github.io/portfolio/**.
 
-## 👨‍💻 About Me
+A single-page site built with **React 19 + Vite** and plain CSS: no UI libraries, no icon packages, content bundled at build time (the only runtime request is the optional GitHub activity feed).
 
-I am **Vishal S**, a Software Engineer based in Coimbatore, India. I specialize in building robust, scalable backend systems and intelligent web applications. 
+## Structure
 
-**My Core Stack:**
-- **Languages:** Python, C, Java, JavaScript, R
-- **Backend & Frameworks:** Django, FastAPI, Flask, Postgres, MySQL
-- **Frontend:** React, HTML/CSS, Tailwind, Streamlit
-- **AI & Data:** LangChain, Pinecone, Hugging Face
+```
+index.html              SEO head (meta, Open Graph, JSON-LD), fonts, reveal gate, noscript fallback
+public/                 Static files served as-is (photo, og-image, resume.pdf, favicon, robots.txt, sitemap.xml)
+src/
+  main.jsx              Entry point (global CSS imported before components)
+  App.jsx               Page composition + scroll-reveal observer
+  index.css             Design tokens (light/dark), type scale, reset, shared components
+  data/                 All site content as JSON
+  components/           One component + one CSS file per section
+    Navbar, Hero (+ HeroDiagram SVG), About, Experience, Projects (case study + list),
+    Skills, Achievements, Activity (live GitHub repos), Contact (+ ContactForm, footer), Icons
+```
 
-Feel free to connect with me:
-- **Email:** vishalsubramaniam0@gmail.com
-- **GitHub:** [vishals25](https://github.com/vishals25)
-- **LinkedIn:** [vishals25](https://www.linkedin.com/in/vishals25)
+## Editing content
 
----
+All text lives in `src/data/`. Edit the JSON and the page updates; no component changes needed.
 
-## 🛠 Technical Overview of this Project
+| File                  | What it holds                                   |
+|-----------------------|-------------------------------------------------|
+| `profile.json`        | Name, role, headline, summary, stack line, availability, links, résumé file, GitHub username, optional `leetcode` URL and `contactFormEndpoint` |
+| `experience.json`     | Roles: company, title, period, summary, highlights, tech, optional `caseStudy` anchor |
+| `education.json`      | Degree, institution, period, CGPA               |
+| `projects.json`       | `featured` case study (problem, implementation, snippet, metrics, findings) and `projects` list (summary, key decisions, tech, links; empty string hides a link) |
+| `skills.json`         | Skill groups; items listed in `core` are highlighted |
+| `achievements.json`   | Publications / academic highlights              |
+| `certifications.json` | Certificates with issuer, date and verification link (empty link = plain text) |
 
-This portfolio is built as a highly interactive **React + Vite** single-page application. It focuses on a premium, minimalist design with custom scrolling behaviors, completely bypassing heavy UI libraries in favor of raw React and Vanilla CSS.
+The case-study architecture stages live in `PIPELINE` inside `src/components/Projects.jsx`.
 
-### Key Features & Architecture:
+### Contact form (optional)
 
-- **Fully Data-Driven:** All content (Experience, Projects, Skills, Certifications) is decoupled from the UI components and strictly served via lightweight `.json` files in `public/data/`. Updating the portfolio simply requires editing a JSON file.
-- **Scroll-Hijacking & Native Handoff:** The Hero section features a complex 2-pane layout where the left profile side is fixed, while the right side (Experience/Education) scrolls via custom `wheel` event hijacking. Once the right pane reaches the bottom, control is seamlessly handed back to the browser's native scroll engine to continue down the page.
-- **Dynamic Intersection Observers:** The Projects section uses the `IntersectionObserver` API to track which project is currently active on screen, dynamically highlighting the specific technologies used for that project in a sticky "Skills Cloud" on the right.
-- **Custom Interactive Canvas:** Features a performant `requestAnimationFrame` Particle Background written in native Canvas 2D. The particles react to mouse movement with subtle physics (push/dampen).
-- **SVG Math Generation:** The Certifications section programmatically calculates an SVG meander-path timeline using React's `useMemo`, rendering a zig-zagging glowing path that dynamically adapts to the number of certifications available.
-- **Zero-Dependency Styling:** Entirely styled using Vanilla CSS (`index.css`), utilizing CSS variables for the design system, modern flexbox/grid layouts, and native CSS transitions/animations without the overhead of Tailwind or CSS-in-JS libraries.
+The site is static, so the form only renders when an endpoint is configured. Create a form at
+[Formspree](https://formspree.io) (or any service accepting JSON `POST` with `Accept: application/json`)
+and either set `contactFormEndpoint` in `profile.json` or build with `VITE_CONTACT_ENDPOINT=<url>`.
+The form includes validation, loading/success/error states, a honeypot and duplicate-submit protection.
 
-## 🚀 Getting Started
+### GitHub activity
 
-To run this project locally:
+`Activity` fetches the most recently pushed public, non-fork repositories for `githubUser` from the
+public GitHub API when the section nears the viewport, caches them for 30 minutes in `sessionStorage`,
+and shows a retry + profile link if the API is unavailable or rate-limited.
 
-1. **Clone the repository**
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
+To update the résumé, replace `public/resume.pdf`. To update the photo, replace `public/me.jpg` (800×1000) and `public/me-sm.jpg` (480×600).
 
-## 📝 Updating Content
-To update the text or add new experiences/projects, simply modify the corresponding JSON files located in the `public/data/` directory. The React components will map and render the new data automatically.
+## Commands
+
+```bash
+npm install       # install dependencies
+npm run dev       # start the dev server
+npm run lint      # run ESLint
+npm run build     # production build into dist/
+npm run preview   # preview the production build
+npm run deploy    # build and publish dist/ to GitHub Pages (gh-pages branch)
+```
+
+The site is served from `/portfolio/` (see `base` in `vite.config.js`); asset URLs in components use `import.meta.env.BASE_URL`.
